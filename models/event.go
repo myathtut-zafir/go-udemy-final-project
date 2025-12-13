@@ -7,7 +7,7 @@ type Event struct {
 	Name        string `binding:"required"`
 	Description string `binding:"required"`
 	Location    string 	`binding:"required"`
-	DateTime    time.Time `binding:"required"`
+	DateTime    time.Time `json:"date_time" binding:"required"`
 	UserID      int
 }
 
