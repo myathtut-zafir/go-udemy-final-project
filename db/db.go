@@ -9,10 +9,11 @@ import (
 var DB *sql.DB
 
 func InitDB() {
-	DB, _ = sql.Open("sqlite3", "api.db")
-	// if _ != nil {
-	// 	panic("DB Error!")
-	// }
+	var err error
+	DB, err = sql.Open("sqlite3", "api.db")
+	if err != nil {
+		panic("DB Error!")
+	}
 	DB.SetMaxOpenConns(10)
 	DB.SetMaxIdleConns(5)
 	createTables()
