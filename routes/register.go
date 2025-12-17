@@ -39,10 +39,10 @@ func cancelRegisterEvent(context *gin.Context) {
 		context.JSON(http.StatusBadRequest, gin.H{"error": "Invalid event"})
 		return
 	}
-	err = event.Register(userId)
+	err = event.CancelRegister(userId)
 	if err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": "Invalid event"})
 		return
 	}
-	context.JSON(http.StatusCreated, gin.H{"message": "Registered successfully"})
+	context.JSON(http.StatusOK, gin.H{"message": "Registration cancelled successfully"})
 }
